@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+}
+
+@import 'colors';
+@import 'header';
+
+body{
+    background-color: $primary;
+    color: $tertiary;
+    
+}
