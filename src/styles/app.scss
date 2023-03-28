@@ -3,12 +3,15 @@
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
     
 }
 
 @import 'colors';
 @import 'header';
 @import 'home';
+@import 'cart';
+@import 'mediaquery';
 
 body{
     background-color: $primary;
