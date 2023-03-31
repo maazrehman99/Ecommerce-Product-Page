@@ -1,16 +1,22 @@
 import React from "react";
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
 
 
 const Home = () => {
+  const dispatch=useDispatch()
 
   const img1 =
     "https://myshop.pk/pub/media/catalog/product/cache/26f8091d81cea4b38d820a1d1a4f62be/_/a/_apple-macbook-pro-m2_-myshop-pk-6_1_1.jpg";
 const img2 =
   "https://www.vodafone.com.au/images/devices/apple/iphone-14-pro/iphone-14-pro-deep-purple-feature1-l.jpg";
   const addToCart = (options) => {
-    console.log(options);
-      toast.success("Item added to cart")
+  
+    dispatch({
+      type: "addToCart",
+      payload: options,
+    });
+    toast.success("Item added to cart")
   }
 
   const products = [
@@ -50,7 +56,7 @@ const ProductComponent = ({ name, price, img, handler, id }) => {
       <img src={img} alt={name} />
       <h4>{name}</h4>
       <h4>${price}</h4>
-      <button onClick={()=>handler({name,price,quanity:1,img,id})}>Add to Cart</button>
+      <button onClick={()=>handler({name,price,quantity:1,img,id})}>Add to Cart</button>
     </div>
   );
 };
