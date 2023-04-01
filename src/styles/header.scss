@@ -1,0 +1,44 @@
+nav{
+    background-color:$secondary ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+
+    >h2{
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $primary;
+       
+    
+    
+    
+    }
+    >div{
+        display: flex;
+        align-items: center;
+        >a{
+            color: $primary;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 2rem;
+            transition: all 0.2s ;
+            &:hover{
+                opacity: 0.5;
+            }
+            >p{
+                position: absolute;
+                background-color: $tertiary;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+                font: 900 0.7rem "roboto";
+                display: grid;
+                place-items: center;
+                transform: translate(80%,-80%);
+
+            }
+        }
+    }
+}
