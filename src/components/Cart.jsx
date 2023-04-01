@@ -3,12 +3,16 @@ import { AiFillDelete } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems,Shipping,SubTotal,Total,Tax } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const increment = (id) => {
     dispatch({
       type: "addToCart",
       payload: {id},
+
+    });
+    dispatch({
+      type: "calculatePrice",
     });
   }
   const decrement = (id) => {
@@ -16,11 +20,18 @@ const Cart = () => {
       type: "decrement",
       payload: id,
     });
+    dispatch({
+      type: "calculatePrice",
+    });
   }
   const deleteHandler = (id) => {
     dispatch({
       type: "deleteFromCart",
       payload: id,
+    });
+    dispatch({
+      type: "calculatePrice",
+  
     });
   }
 
@@ -48,10 +59,10 @@ const Cart = () => {
         )}
       </main>
       <aside>
-        <h2>Sub Total : ${}</h2>
-        <h2>Shipping : ${4555}</h2>
-        <h2>Tax : ${4555}</h2>
-        <h2>Total : ${4555}</h2>
+        <h2>Sub Total : $ {SubTotal}</h2>
+        <h2>Shipping : $ {Shipping}</h2>
+        <h2>Tax : $ {Tax}</h2>
+        <h2>Total : $ {Total}</h2>
       </aside>
     </div>
   );
@@ -71,7 +82,7 @@ const Cartitem = ({
     <img src={img} alt="" />
     <article>
       <h2>{name}</h2>
-      <p>{price}</p>
+      <p> $ {price}</p>
     </article>
     <div>
       <button onClick={() => decrement(id)}>-</button>

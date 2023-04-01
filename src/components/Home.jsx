@@ -7,9 +7,17 @@ const Home = () => {
   const dispatch=useDispatch()
 
   const img1 =
-    "https://myshop.pk/pub/media/catalog/product/cache/26f8091d81cea4b38d820a1d1a4f62be/_/a/_apple-macbook-pro-m2_-myshop-pk-6_1_1.jpg";
+    "https://mobipro.pk/media/catalog/product/cache/9dec5760a6263cc3ba39ca8d9164bdba/a/p/apple-iphone-x-silver_1.png";
 const img2 =
   "https://www.vodafone.com.au/images/devices/apple/iphone-14-pro/iphone-14-pro-deep-purple-feature1-l.jpg";
+
+  const img3 = "https://m.media-amazon.com/images/I/41xssMLI2DL._SL500_.jpg";
+  const img4 =
+    "https://phonedroid.com.pk/wp-content/uploads/2023/02/samsung-galaxy-s23-500x500.jpeg?x21157";
+  const img5 =
+    "http://cdn.shopify.com/s/files/1/0575/3628/2777/products/Untitled_500x500px_-2022-09-14T161837.851.png?v=1663190327";
+ 
+
   const addToCart = (options) => {
   
     dispatch({
@@ -17,21 +25,45 @@ const img2 =
       payload: options,
     });
     toast.success("Item added to cart")
+    dispatch({
+      type: "calculatePrice",
+    });
   }
 
   const products = [
     {
       id: "asdas",
-      name: "Mac Book",
-      price: 1000,
+      name: "Samsung",
+      price: 600,
       image:  img1 ,
     },
     {
       id: "sadas",
-      name: "Iphone",
-      price: 2000,
+      name: "Iphone X",
+      price: 1399,
       image:  img2 ,
     },
+    {
+      id: "saddas",
+      name: "Realme",
+      price: 1567,
+      image:  img3 ,
+    },
+    {
+      id: "fdfs",
+      name: "Oppo",
+      price: 678,
+      image:  img4 ,
+    },
+    {
+      id: "asdadsfs",
+      name: "Iphone 12",
+      price: 579,
+      image:  img5 ,
+    },
+   
+    
+
   ];
 
   return (

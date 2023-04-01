@@ -30,6 +30,18 @@ export const cartReducer = createReducer(
     },
     deleteFromCart: (state, action) => {
         state.cartItems = state.cartItems.filter((i) => i.id!== action.payload);
+    },
+    calculatePrice:(state)=>{
+      let sum = 0;
+      state.cartItems.forEach((i)=>{
+        sum += i.quantity * i.price;
+      })
+     
+      state.SubTotal = sum;
+        state.Tax = +(state.SubTotal * 0.1).toFixed() ;  
+        state.Shipping = state.cartItems.length>0? state.SubTotal>1000?0:200:0;
+        state.Total = state.SubTotal + state.Tax + state.Shipping;
+
     }
   }
 );
